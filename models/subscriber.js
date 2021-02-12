@@ -7,7 +7,6 @@ const subscriberSchema = new mongoose.Schema({
   },
   subscribedToChannel: {
     type: String,
-    required: true,
   },
   subscribeDate: {
     type: Date,

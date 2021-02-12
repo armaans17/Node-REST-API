@@ -1,5 +1,4 @@
 const express = require("express");
-const subscriber = require("../models/subscriber");
 const router = express.Router();
 const Subscriber = require("../models/subscriber");
 
@@ -35,10 +34,24 @@ router.post("/", async (req, res) => {
 });
 
 //Updating One
-router.patch("/:id", getSubscriber, async (req, res) => {});
+router.patch("/:id", getSubscriber, async (req, res) => {
+  if (req.body.name !== null) {
+    res.subscriber.name = req.body.name;
+  }
+  if (req.body.subscribedToChannel !== null) {
+    res.subscriber.subscribedToChannel = req.body.subscribedToChannel;
+  }
+
+  try {
+    const updatedSubscriber = await res.subscriber.save();
+    res.json(updatedSubscriber);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 //Deleting One
-router.get("/:id", getSubscriber, async (req, res) => {
+router.delete("/:id", getSubscriber, async (req, res) => {
   try {
     await res.subscriber.remove();
 

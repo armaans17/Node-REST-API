@@ -17,3 +17,12 @@ Content-Type: application/json
 ###
 
 DELETE  http://localhost:5000/subscribers/6025e031c3d48610a075568c
+
+###
+
+PATCH http://localhost:5000/subscribers/6025df46098334532c038dcb
+Content-Type: application/json
+
+{
+    "name": "maani"
+}
