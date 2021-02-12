@@ -2,4 +2,18 @@ GET http://localhost:5000/subscribers/
 
 ###
 
-GET http://localhost:5000/subscribers/12
+GET http://localhost:5000/subscribers/6025df46098334532c038dcb
+
+###
+
+POST http://localhost:5000/subscribers/
+Content-Type: application/json
+
+{
+   "name": "Armaan",
+    "subscribedToChannel": "Deshbhakt"
+}
+
+###
+
+DELETE  http://localhost:5000/subscribers/6025e031c3d48610a075568c
